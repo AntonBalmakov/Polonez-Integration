@@ -1,0 +1,41 @@
+<odoo>
+    <record id="pz_product_form" model="ir.ui.view">
+        <field name="name">pz.product.form</field>
+        <field name="model">pz.product</field>
+        <field name="arch" type="xml">
+            <form string="Pz Product Form">
+                <sheet>
+                    <group>
+                        <field name="name" string="Product Name"/>
+                        <field name="external_id" string="External Product ID"/>
+                        <field name="barcode" string="Barcode"/>
+                        <field name="product_id" string="Related Product"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="pz_product_tree" model="ir.ui.view">
+        <field name="name">pz.product.tree</field>
+        <field name="model">pz.product</field>
+        <field name="arch" type="xml">
+            <tree string="Pz Product Tree">
+                <field name="name"/>
+                <field name="external_id"/>
+                <field name="barcode"/>
+                <field name="product_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="pz_product_action" model="ir.actions.act_window">
+        <field name="name">Pz Products</field>
+        <field name="res_model">pz.product</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="pz_product_menu" name="Pz product" web_icon="custom_integ,static/description/icon.png"
+              sequence="1" action="pz_product_action" groups="custom_integ.custom_integ_group_worker"/>
+
+</odoo>
